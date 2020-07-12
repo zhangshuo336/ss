@@ -1,0 +1,63 @@
+{% extends 'templates/_dash_base.html' %}
+{% block css %}
+{% include 'templates/_commoncss.html' %}
+<link href="/static/css/pure-min.css" rel="stylesheet" type="text/css"/>
+<link href="/static/css/tooltip.css" rel="stylesheet" type="text/css"/>
+<link href="/static/css/main.css" rel="stylesheet" type="text/css"/>
+<!-- <header id="head" class="aside"></header> -->
+{% endblock css %}
+{% block body %}
+{% include 'templates/_header.html' %}
+{% include 'templates/_sidebar.html' %}
+<div class="content">
+    <div id="term" align="center"></div>
+    <div id="main" align="center">
+        <form id="form" name="form" class="pure-form pure-form-stacked">
+            <fieldset>
+                <div class="pure-item">
+                    <label for="host">主机</label>
+                    <input id="host" name="host" type="text">
+                </div>
+                <div class="pure-item">
+                    <label for="port">端口</label>
+                    <input id="port" name="port" type="text" value="22" disabled>
+                </div>
+                <div class="pure-item">
+                    <label for="username">用户名</label>
+                    <input id="username" name="username" type="text" value="pi">
+                </div>
+                <div class="pure-item" style="display:none;">
+                    <label>Type</label>
+                    <div id="ratio-group">
+                        <label for="password" class="pure-radio">
+                            <input id="password" type="radio" name="ispwd" value="true" checked>
+                            Password
+                        </label>
+    
+                        <label for="primerykey" class="pure-radio">
+                            <input id="primerykey" type="radio" name="ispwd" value="false">
+                            Primary Key
+                        </label>
+                    </div>
+                </div>
+                <div class="pure-item">
+                    <label for="secret">密码</label>
+                    <input id="secret" name="secret" type="password" value="zhangshuo">
+                </div>
+            
+                <button type="button" class="pure-button pure-button-primary" style="width:300px;" onclick="connect()">登录</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock body %}
+{% block script %}
+{% include 'templates/_commonjs.html' %}
+<script src="/static/js/lib/term.js"></script>
+<script src="/static/js/ws.js"></script>
+<script src="/static/js/main.js"></script>
+<script>
+    $("#sidebar_webssh").addClass("active")
+    $("#host").val(window.location.host)
+</script>
+{% endblock script %}

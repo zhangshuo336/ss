@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block css %}
+    {% endblock css %}
+</head>
+<body>
+    {% csrf_token %}
+    {% block body %}
+    {% endblock body %}
+</body>
+    {% block script %}
+    {% endblock script %}
+</html>

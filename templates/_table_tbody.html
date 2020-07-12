@@ -1,0 +1,17 @@
+<tr>
+    <th scope="row">{{forloop.counter}}</th>
+    <td>{{item.name|truncatechars:20}}</td>
+    <td>{{item.size}}</td>
+    {% if item.type == "file" %}
+    <td><i class="fa fa-file-o" aria-hidden="true"></i> 文件</td>
+    {% else %}
+    <td><i class="fa fa-folder-o" aria-hidden="true"></i> 目录</td>
+    {% endif %}
+    <td><i class="fa fa-calendar" aria-hidden="true"></i> {{item.create_time}}</td>
+    <td>
+        <button type="button" class="btn btn-success" value="{{ item.name }}"><i class="fa fa-cloud-download" aria-hidden="true"></i>下载</button>
+        <button type="button" class="btn btn-info" value="{{ item.name }}"><i class="fa fa-search" aria-hidden="true"></i>查看</button>
+        <button type="button" class="btn btn-warning" value="{{ item.name }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</button>
+        <button type="button" class="btn btn-danger" value="{{ item.name }}"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</button>
+    </td>
+</tr>

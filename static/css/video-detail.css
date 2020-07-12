@@ -1,0 +1,7 @@
+.video-detail{
+    width: 800px;
+    height: 600px;
+    background-color: black;
+    margin: 10px auto;
+    display: inline-block;
+}

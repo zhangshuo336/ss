@@ -1,0 +1,59 @@
+.aside {
+    text-align: center;
+    background: #1f8dd6;
+    height: 100px;
+    color: #fff;
+    vertical-align: middle;
+    line-height: 100px;
+    font-size: 30px
+}
+
+#main {
+    margin-top: 20px;
+}
+
+#ratio-group {
+    float: right;
+}
+
+.pure-item {
+    margin: 0 auto 10px;
+    width: 300px;
+    position: relative;
+}
+
+.pure-radio {
+    margin-left: 10px;
+}
+
+.pure-item:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.pure-item label {
+    float: left;
+    line-height: 34px;
+}
+
+.pure-item input {
+    float: right;
+}
+
+.pure-item select {
+    float: right;
+}
+
+.terminal {
+    position:absolute;
+    z-index:1;
+    border: #000 solid 5px;
+    /* font-family: "DejaVu Sans Mono"; */
+    font-family: "Courier New";
+    font-size: 13px;
+    color: #f0f0f0;
+    width: 100%;
+    background: #000;
+    box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 20px;
+}
