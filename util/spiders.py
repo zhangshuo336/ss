@@ -70,7 +70,7 @@ def baidu_zhidao_spider():
             h = urllib2.urlopen(request)
             html = BeautifulSoup(h)
             title = html.title.string
-            #print title
+            # print title
             if title == u'百度知道 - 信息提示':
                 loop += 1
                 continue
@@ -88,11 +88,13 @@ def baidu_zhidao_spider():
                     "answer":answer_list,
                     "page_num":index
                     }
-            #print data
+            # print data
             mongoapi.mongoSave(baiduzhidao,str(uuid.uuid4()),data)
+            # loop += 1
+
             break
         except Exception as e:
-            #print 'err'
+            # print 'err'
             mongoapi.mongoUpdateOne(baiduzhidaopage,baiduzhidaopage,index)
             # loop += 1
             # time.sleep(3)
@@ -124,9 +126,11 @@ def baidu_baike_spider():
                 # print html.select("div[class='para']")
                 resp_num = len(html.select("div[class='para']"))
                 # print resp_num
-                resp_str = ""
+                resp_str = []
+
                 for i in range(resp_num):
-                    resp_str += html.select("div[class='para']")[i].get_text().replace("\n","")
+                    resp_str.append(html.select("div[class='para']")[i].get_text().replace("\n",""))
+                resp_str = "".join(resp_str)
                 data = {
                     "title":title,
                     "content":resp_str,
@@ -141,14 +145,14 @@ def baidu_baike_spider():
         except Exception as e:
             # print 'err'
             # print e
+            # logging.basicConfig(filename = os.path.join(os.getcwd(), '/var/log/console.log'), level = logging.DEBUG)
+            # logging.debug(e)
             mongoapi.mongoUpdateOne(baidubaikepage,baidubaikepage,index)
+            # loop += 1
             break
             
 
 
-
-# baidu_baike_spider()
-#spider()
-
-
-
+# if __name__ == "__main__":
+    # baidu_baike_spider()
+    
