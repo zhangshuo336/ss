@@ -35,7 +35,7 @@ def mongoFindQuery(col,args):
 	"""查询指定字段的数据例如args='ss'返回的数据中name为ss的val数据"""
 	mycol = db[col]
 	data_base = mycol.find({"name":args})
-	print data_base
+	# print data_base
 	return data_base
 def mongoFindPage(col,offset,count):
 	"""查询指定集合col下的数据并根据偏移量offset和数量count进行分页查询"""
