@@ -124,7 +124,7 @@ USE_TZ = False
 
 
 CRONJOBS = [
-        ('0 */3 * * *','util.api.save_temperature_humidity'),
+        ('*/1 * * * *','util.api.save_temperature_humidity'),
         ('*/1 * * * *','util.spiders.baidu_baike_spider'),
         ('*/1 * * * *','util.spiders.baidu_zhidao_spider'),
         ('0 */10 * * *','util.mongoback.back_mongo'),
